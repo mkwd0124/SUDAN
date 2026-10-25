@@ -1,0 +1,152 @@
+:root {
+  --nile: #0d3b44;
+  --sand: #f0e0bd;
+  --ochre: #b8761f;
+  --ink: #1d2427;
+  --paper: #fbf9f4;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Nunito Sans", Arial, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+h1, h2, h3 { font-family: "Marcellus", Georgia, serif; font-weight: 400; line-height: 1.2; }
+a { color: inherit; }
+a:focus-visible, .btn:focus-visible { outline: 3px solid var(--ochre); outline-offset: 3px; }
+
+/* ===== Header ===== */
+header {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--nile);
+  color: #fff;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 8px;
+  padding: 10px 5%;
+}
+.logo { font-family: "Marcellus", Georgia, serif; font-size: 1.6rem; text-decoration: none; }
+nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 20px; }
+nav a { text-decoration: none; padding: 4px 2px; border-bottom: 2px solid transparent; }
+nav a:hover { border-bottom-color: var(--ochre); }
+
+/* ===== Hero (photo: images/hero.jpg) ===== */
+.hero {
+  background-image:
+    linear-gradient(180deg, rgba(13,59,68,.80) 0%, rgba(13,59,68,.45) 55%, rgba(184,118,31,.70) 100%),
+    url("images/hero.jpg"),
+    linear-gradient(180deg, #0d3b44 0%, #1c5a60 60%, #b8761f 100%);
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 90px 5% 0;
+  overflow: hidden;
+}
+.hero h1 { font-size: clamp(3.5rem, 11vw, 7rem); letter-spacing: 0.04em; }
+.hero p { max-width: 36em; margin: 12px auto 28px; font-size: 1.15rem; }
+.btn {
+  display: inline-block;
+  background: var(--sand); color: var(--nile);
+  padding: 10px 28px; border-radius: 4px;
+  font-weight: 700; text-decoration: none;
+}
+.btn:hover { background: #fff; }
+
+/* Pyramids drawn with CSS only */
+.pyramids { display: flex; justify-content: center; align-items: flex-end; gap: 10px; margin-top: 40px; }
+.pyramids span { display: block; background: #3a2208; clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.pyramids span:nth-child(1) { width: 70px;  height: 80px; }
+.pyramids span:nth-child(2) { width: 110px; height: 130px; }
+.pyramids span:nth-child(3) { width: 150px; height: 175px; }
+.pyramids span:nth-child(4) { width: 100px; height: 120px; }
+.pyramids span:nth-child(5) { width: 60px;  height: 70px; }
+
+/* ===== Sections ===== */
+section { padding: 70px 5%; }
+.intro { max-width: 760px; margin: 0 auto; text-align: center; }
+.intro h2 { font-size: 2.1rem; color: var(--nile); margin-bottom: 10px; }
+
+/* Each topic has its own color theme */
+.sec-nile     { --accent: #1d5fa8; --tint: #dce8f6; }
+.sec-pyramids { --accent: #a8581a; --tint: #f6e3c4; }
+.sec-reef     { --accent: #0b8a8f; --tint: #d4f1ef; }
+.sec-marra    { --accent: #2f6b3a; --tint: #e0efd9; }
+.sec-fateh    { --accent: #6a4c93; --tint: #e8e1f2; }
+.sec-saqr     { --accent: #9b2c2c; --tint: #f5dcdc; }
+.sec-nile, .sec-pyramids, .sec-reef, .sec-marra, .sec-fateh, .sec-saqr { background: var(--tint); }
+
+.place { display: flex; align-items: center; gap: 40px; max-width: 1050px; margin: 0 auto; }
+.place.flip { flex-direction: row-reverse; }
+.place .text { flex: 1; border-left: 5px solid var(--accent); padding-left: 22px; }
+.place h2 { font-size: 2.1rem; color: var(--accent); margin-bottom: 4px; }
+.place .where { color: var(--accent); font-weight: 700; margin-bottom: 10px; }
+.place ul { margin: 12px 0 0 20px; }
+.place li { margin-bottom: 4px; }
+.place li::marker { color: var(--accent); }
+
+/* ===== Photos (files in the images folder; colors show if a file is missing) ===== */
+.photo {
+  flex: 1; min-height: 340px; border-radius: 8px;
+  background-size: cover; background-position: center;
+  display: flex; align-items: flex-end;
+  color: #fff; font-size: .95rem; font-weight: 600;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+.photo span { padding: 14px 16px; }
+
+.p-nile {
+  background-image: linear-gradient(to top, rgba(0,0,0,.55), transparent 45%),
+    url("images/nile.jpg"),
+    linear-gradient(180deg, #f4c27a 0%, #3f87c4 55%, #12406e 100%);
+}
+.p-pyramids {
+  background-image: linear-gradient(to top, rgba(0,0,0,.55), transparent 45%),
+    url("images/pyramids.jpg"),
+    linear-gradient(180deg, #8ec5e8 0%, #f1c27d 55%, #b9702e 100%);
+}
+.p-reef {
+  background-image: linear-gradient(to top, rgba(0,0,0,.55), transparent 45%),
+    url("images/reef.jpg"),
+    linear-gradient(180deg, #5fd3d0 0%, #0b7f9c 55%, #083a5c 100%);
+}
+.p-marra {
+  background-image: linear-gradient(to top, rgba(0,0,0,.55), transparent 45%),
+    url("images/marra.jpg"),
+    linear-gradient(180deg, #9cc9e6 0%, #6fa35c 55%, #2a5a35 100%);
+}
+.p-fateh {
+  background-image: linear-gradient(to top, rgba(0,0,0,.55), transparent 45%),
+    url("images/fateh.jpg"),
+    linear-gradient(180deg, #f4a259 0%, #8a6fb5 55%, #2d2552 100%);
+}
+.p-saqr {
+  background-image: linear-gradient(to top, rgba(0,0,0,.55), transparent 45%),
+    url("images/saqr.jpg"),
+    linear-gradient(180deg, #e6c36a 0%, #b5413a 55%, #5a1717 100%);
+}
+
+/* ===== Table ===== */
+table { border-collapse: collapse; width: 100%; max-width: 900px; margin: 24px auto 0; background: #fff; }
+th, td { padding: 12px 16px; text-align: left; border: 1px solid #d9cfb8; }
+th { background: var(--nile); color: #fff; font-weight: 600; }
+tbody tr:nth-child(1) td:first-child { border-left: 6px solid #1d5fa8; }
+tbody tr:nth-child(2) td:first-child { border-left: 6px solid #a8581a; }
+tbody tr:nth-child(3) td:first-child { border-left: 6px solid #0b8a8f; }
+tbody tr:nth-child(4) td:first-child { border-left: 6px solid #2f6b3a; }
+tbody tr:nth-child(5) td:first-child { border-left: 6px solid #6a4c93; }
+tbody tr:nth-child(6) td:first-child { border-left: 6px solid #9b2c2c; }
+.table-wrap { overflow-x: auto; }
+
+footer { background: var(--ink); color: #cfd6d8; text-align: center; padding: 28px 5%; }
+footer .credits { font-size: .9rem; margin-top: 6px; opacity: .8; }
+
+/* ===== Mobile ===== */
+@media (max-width: 760px) {
+  .place, .place.flip { flex-direction: column; gap: 20px; }
+  .photo { width: 100%; min-height: 240px; }
+  section { padding: 50px 5%; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
